@@ -1,0 +1,3 @@
+làm được hệ thống:
+- redis,sftp deploy: docker, jenkin k8s.
+- nghiên cứu thêm JasperReports nữa nhé.

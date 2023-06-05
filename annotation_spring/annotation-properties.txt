@@ -1,0 +1,32 @@
+https://viblo.asia/p/spring-boot-huong-dan-tao-bean-co-dieu-kien-voi-atconditional-gDVK2270KLj
+
+- @ConditionalOnBean // tạo bean dựa vào bean khác nếu tồn tại
+- @ConditionalOnProperty # // tạo bean dựa vào properties
+- @ConditionalOnExpression #Trong trường hợp bạn muốn thỏa mãn nhiều điều kiện trong property, hãy sử dụng @ConditionalOnExpression
+vd : 
+@Configuration
+@ConditionalOnExpression(
+        "${loda.expression1.enabled:true} and ${loda.expression2.enabled:true}"
+)
+public class ConditionalOnExpressionExample {
+}
+
+- @ConditionalOnMissingBean // Nếu trong context chưa tồn tại bean nào thì khởi tạo
+- @ConditionalOnResource // Thỏa mãn khi chỉ định 1 resource nào đó tồn tại
+vd: 
+/*
+Nếu Spring Boot không tìm thấy file application.properties thì class này không được tạo
+*/
+
+@Configuration
+@ConditionalOnResource(resources = "/application.properties")
+public class ConditionalOnResourceExample {
+}
+
+- @ConditionalOnClass //Tạo bean khi có class
+vd:
+@Configuration
+@ConditionalOnClass(name = "loda.me.spring.LodaHandsome")
+class ConditionalOnClassExample {
+}
+
